@@ -17,6 +17,12 @@ class SingleLinkedList:
         else:
             self.head = new_node
 
+    def printLL(self):
+        current = self.head
+        while (current):
+            print(current.data)
+            current = current.next
+
 insta = Node(3)
 print(insta.data, insta.nxt)
 
