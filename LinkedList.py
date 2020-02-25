@@ -11,7 +11,7 @@ class SinglyLinkedList:
     def __init__(self):
         self.head = Node()
 
-    def adding(self, data):
+    def add(self, data):
         new_node = Node(data)
         if self.head:
             current = self.head
@@ -20,6 +20,11 @@ class SinglyLinkedList:
             current.next = new_node
         else:
             self.head = new_node
+
+    def add_head(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
 
     def add_end(self, data):
         new_node = Node(data)
@@ -40,11 +45,11 @@ class SinglyLinkedList:
         elems = []
         current = self.head
         while current.next:
-            current = current.next
             elems.append(current.data)
-        print(elems)
+            current = current.next
+        return elems
 
-    def show(self, index):
+    def show_any(self, index):
         if index>=self.length():
             print("Out of range")
             return None
@@ -72,11 +77,10 @@ class SinglyLinkedList:
 
 
 insta = SinglyLinkedList()
-n = Node()
-insta.add_end(3)
-insta.adding(4)
-insta.adding(3)
-print(insta.erase_any(0))
-#n.__repr__()
-#insta.display()
+
+insta.add_head(4)
+insta.add_head(3)
+insta.add_end(5)
+print(insta.display())
+
 
