@@ -11,7 +11,7 @@ class SinglyLinkedList:
     def __init__(self):
         self.head = Node()
 
-    def add(self, data):
+    def add_end(self, data):
         new_node = Node(data)
         if self.head:
             current = self.head
@@ -25,13 +25,6 @@ class SinglyLinkedList:
         new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
-
-    def add_end(self, data):
-        new_node = Node(data)
-        current = self.head
-        while current.next:
-            current = current.next
-        current.next = new_node
 
     def length(self):
         current = self.head
@@ -75,12 +68,25 @@ class SinglyLinkedList:
                 return
             cur_idx += 1
 
+    def del_head(self):
+        new_node = self.head
+        self.head = self.head.next
+        return new_node.data
+
+    def del_end(self):
+        current = self.head
+        while current.next:
+            current = current.next
+            if current == None:
+                break
+
 
 insta = SinglyLinkedList()
 
 insta.add_head(4)
 insta.add_head(3)
 insta.add_end(5)
+insta.del_end()
 print(insta.display())
 
 
