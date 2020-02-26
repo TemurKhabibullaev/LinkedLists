@@ -26,6 +26,19 @@ class SinglyLinkedList:
         new_node.next = self.head
         self.head = new_node
 
+    def del_head(self):
+        self.head = self.head.next
+
+    def del_end(self):
+        list = []
+        current = self.head
+        list.append(current)
+        while current.next:
+            current = current.next
+            list.append(current)
+        del list[-1]
+        print(list)
+
     def length(self):
         current = self.head
         total = 1
@@ -54,7 +67,7 @@ class SinglyLinkedList:
             print("ERROR. Out of range")
         print(list[index])
 
-    def erase_any(self, index):
+    def erase_by_index(self, index):
         list = []
         current = self.head
         list.append(current)
@@ -64,19 +77,6 @@ class SinglyLinkedList:
         if index > len(list):
             print("ERROR. Out of range")
         del list[index]
-        print(list)
-
-    def del_head(self):
-        self.head = self.head.next
-
-    def del_end(self):
-        list = []
-        current = self.head
-        list.append(current)
-        while current.next:
-            current = current.next
-            list.append(current)
-        del list[-1]
         print(list)
 
     def rem_obj(self, object):
@@ -90,7 +90,7 @@ class SinglyLinkedList:
         elif int(object) != current.data: print("Error. No such value")
         print(list)
 
-    def container(self, object):
+    def contains_or_not(self, object):
         list = []
         current = self.head
         list.append(current.data)
