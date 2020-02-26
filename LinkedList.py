@@ -82,21 +82,30 @@ class SinglyLinkedList:
     def rem_obj(self, object):
         list = []
         current = self.head
-        list.append(current)
+        list.append(current.data)
         while current.next:
             current = current.next
-            list.append(current)
-            if object in list:
-                current = current.next
-                list.remove(object)
+            list.append(current.data)
+        if int(object) == current.data: list.remove(current.data)
+        elif int(object) != current.data: print("Error. No such value")
         print(list)
+
+    def container(self, object):
+        list = []
+        current = self.head
+        list.append(current.data)
+        while current.next:
+            current = current.next
+            list.append(current.data)
+        if int(object) in list: print(True)
+        else: print(False)
 
 insta = SinglyLinkedList()
 insta.adding(4)
 insta.adding(3)
 insta.add_head(2)
 #insta.length()
-insta.rem_obj(2)
-#insta.display()
+insta.rem_obj(3)
+insta.display()
 
 
