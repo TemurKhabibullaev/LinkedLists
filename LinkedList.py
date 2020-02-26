@@ -26,20 +26,13 @@ class SinglyLinkedList:
         new_node.next = self.head
         self.head = new_node
 
-    def add_end(self, data):
-        new_node = Node(data)
-        current = self.head
-        while current.next:
-            current = current.next
-        current.next = new_node
-
     def length(self):
         current = self.head
-        total = 0
+        total = 1
         while current.next:
             total += 1
             current = current.next
-        return total
+        print(total)
 
     def display(self):
         elems = []
@@ -51,35 +44,30 @@ class SinglyLinkedList:
         return elems
 
     def show_any(self, index):
-        if index >= self.length():
-            print("Out of range")
-            return None
-        cur_idx = 0
+        list = []
         current = self.head
-        while True:
+        list.append(current)
+        while current.next:
             current = current.next
-            if cur_idx == index:
-                return current.data
-            cur_idx += 1
+            list.append(current)
+        if index > len(list):
+            print("ERROR. Out of range")
+        print(list[index])
 
     def erase_any(self, index):
-        if index >= self.length():
-            print("Out of range")
-            return None
-        cur_idx = 0
+        list = []
         current = self.head
-        while True:
+        list.append(current)
+        while current.next:
             current = current.next
-            last_node = current
-            if cur_idx == index:
-                last_node.next = current.next
-                return
-            cur_idx += 1
+            list.append(current)
+        if index > len(list):
+            print("ERROR. Out of range")
+        del list[index]
+        print(list)
 
     def del_head(self):
-        new_node = self.head
         self.head = self.head.next
-        return new_node.data
 
     def del_end(self):
         current = self.head
@@ -90,14 +78,10 @@ class SinglyLinkedList:
 
 
 insta = SinglyLinkedList()
-n = Node()
 insta.adding(4)
 insta.adding(3)
-insta.adding(3)
-insta.adding(5)
-#insta.show_any(1)
-n.__repr__()
-#insta.del_end()
+insta.length()
+insta.add_head(2)
 print(insta.display())
 
 
