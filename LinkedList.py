@@ -79,12 +79,24 @@ class SinglyLinkedList:
         del list[-1]
         print(list)
 
+    def rem_obj(self, object):
+        list = []
+        current = self.head
+        list.append(current)
+        while current.next:
+            current = current.next
+            list.append(current)
+            if object in list:
+                current = current.next
+                list.remove(object)
+        print(list)
+
 insta = SinglyLinkedList()
 insta.adding(4)
 insta.adding(3)
 insta.add_head(2)
-insta.length()
-insta.del_end()
-insta.display()
+#insta.length()
+insta.rem_obj(2)
+#insta.display()
 
 
