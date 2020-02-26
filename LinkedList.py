@@ -41,7 +41,7 @@ class SinglyLinkedList:
         while current.next:
             current = current.next
             elems.append(current.data)
-        return elems
+        print(elems)
 
     def show_any(self, index):
         list = []
@@ -70,18 +70,21 @@ class SinglyLinkedList:
         self.head = self.head.next
 
     def del_end(self):
+        list = []
         current = self.head
+        list.append(current)
         while current.next:
             current = current.next
-        last_node = current
-        last_node.next = self.head
-
+            list.append(current)
+        del list[-1]
+        print(list)
 
 insta = SinglyLinkedList()
 insta.adding(4)
 insta.adding(3)
-insta.length()
 insta.add_head(2)
-print(insta.display())
+insta.length()
+insta.del_end()
+insta.display()
 
 
